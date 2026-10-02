@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bio-H-Milch 1,5 % · Warenbogen</title>
-<meta name="description" content="Warenbeschreibungsbogen und Verkaufsleitfaden zur Bio Sonne Bio-H-Milch 1,5 % – Schulungsunterlage von Jona Gotthardt.">
+<title>Bio-H-Milch 1,5 % · Warenpräsentation</title>
+<meta name="description" content="Bio Sonne Bio-H-Milch 1,5 %: Bio-Qualität, monatelang haltbar ohne Kühlschrank, für rund 1,19 € pro Liter. Produktpräsentation von Jona Gotthardt.">
 <meta name="theme-color" content="#1d3fe0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d3fe0'/%3E%3Ccircle cx='32' cy='32' r='14' fill='%23ffc824'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;600;800&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-/* Layout: Milchkarton als Bühne. Hero mit drehbarem 3D-Karton, dann Kriterien des Warenbogens als Wechsel aus milchweißen und kobaltblauen Vollflächen. Bewusst ein festes Farbschema (Milch, Kobalt, Sonne). */
+/* Layout: Produktseite, die verkauft. Hero mit drehbarem 3D-Karton und Preis-Sticker, danach die Punkte des Warenbeschreibungsbogens als Wechsel aus milchweißen, kobaltblauen und dunklen Vollflächen, Abschluss mit Kaufargument und kompaktem Bogen. Bewusst ein festes Farbschema (Milch, Kobalt, Sonne). */
 :root{
   --milk:#f5f6fb;
   --card:#ffffff;
@@ -19,10 +19,10 @@
   --muted:#56607a;
   --line:#dde2ef;
   --cobalt:#1d3fe0;
-  --cobalt-deep:#0d1f7a;
   --sun:#ffc824;
   --grass:#16a05a;
   --red:#e5484d;
+  --on-blue:#c8d2ff;
   --display:"Unbounded", "Arial Black", system-ui, sans-serif;
   --body:"Manrope", "Segoe UI", system-ui, sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
@@ -33,50 +33,59 @@
 html{scroll-behavior:smooth}
 html,body{margin:0;background:var(--milk);color:var(--ink)}
 body{font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3{font-family:var(--display);line-height:1.02;margin:0;text-wrap:balance;letter-spacing:-.02em}
+h1,h2,h3{font-family:var(--display);line-height:1.04;margin:0;text-wrap:balance;letter-spacing:-.02em}
 p{margin:0}
 ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px}
 button{font:inherit;cursor:pointer;color:inherit}
+a{color:inherit}
 :focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
-.mono{font-family:var(--mono)}
 .num{font-variant-numeric:tabular-nums}
 .wrap{max-width:1200px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
-.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px}
-.eyebrow::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--sun)}
-.check{display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.04em;padding:2px 8px;border-radius:999px;background:var(--sun);color:var(--ink);vertical-align:middle;margin-left:6px;white-space:nowrap;font-weight:500}
-body.clean .check{display:none}
+.eyebrow{font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap}
+.eyebrow::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--sun);flex:none}
 
 /* Nav */
-.nav{position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--milk) 82%,transparent);backdrop-filter:blur(12px) saturate(1.4);border-bottom:1px solid var(--line)}
+.nav{position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--milk) 84%,transparent);backdrop-filter:blur(12px) saturate(1.4);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px}
-.logo{font-family:var(--display);font-weight:900;font-size:1.15rem;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:8px}
+.logo{font-family:var(--display);font-weight:900;font-size:1.05rem;text-decoration:none;display:flex;align-items:center;gap:8px}
 .logo i{width:22px;height:22px;border-radius:50%;background:var(--sun);box-shadow:inset 0 0 0 5px var(--cobalt)}
-.nav-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.pill{border:2px solid var(--ink);background:transparent;border-radius:999px;padding:8px 16px;font-weight:800;font-size:.88rem;transition:transform .15s,background .15s}
+.links{display:flex;gap:20px;font-weight:700;font-size:.92rem}
+.links a{text-decoration:none;opacity:.75}
+.links a:hover{opacity:1}
+.pill{border:2px solid var(--ink);background:var(--ink);color:var(--milk);border-radius:999px;padding:8px 16px;font-weight:800;font-size:.88rem;transition:transform .15s}
 .pill:hover{transform:translateY(-2px)}
-.pill.go{background:var(--ink);color:var(--milk)}
-.pill[aria-pressed="true"]{background:var(--sun)}
 
 /* Hero */
 .hero{position:relative;isolation:isolate;padding-block:clamp(32px,6vw,72px) 24px;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr);gap:32px;align-items:center}
-.hero h1{font-size:clamp(2.8rem,9vw,7.2rem);font-weight:900;margin-top:18px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.95fr);gap:32px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,7.6vw,6.4rem);font-weight:900;margin-top:18px}
 .hero h1 .blue{color:var(--cobalt)}
-.hero h1 .outline{display:block;color:transparent;-webkit-text-stroke:2.5px var(--ink);font-size:.82em}
-.hero .lead{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:44ch;margin-top:22px;color:var(--muted)}
+.hero h1 .outline{display:block;color:transparent;-webkit-text-stroke:2.5px var(--ink);font-size:.62em;margin-top:.15em}
+.hero .lead{font-size:clamp(1.08rem,1.6vw,1.3rem);max-width:42ch;margin-top:22px;color:var(--muted)}
 .hero .lead b{color:var(--ink)}
-.who{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.who span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-weight:600;font-size:.9rem}
-.who span b{font-weight:800}
-.sunblob{position:absolute;width:min(70vw,620px);aspect-ratio:1;border-radius:50%;right:-12%;top:-10%;background:radial-gradient(circle at 40% 40%,var(--sun),#ffb000 60%,transparent 61%);opacity:.9;z-index:-1;animation:breathe 9s ease-in-out infinite}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;border-radius:999px;padding:15px 24px;transition:transform .15s,box-shadow .15s}
+.btn.main{background:var(--cobalt);color:#fff;box-shadow:0 8px 0 var(--ink)}
+.btn.main:hover{transform:translateY(-3px);box-shadow:0 11px 0 var(--ink)}
+.btn.ghost{border:2px solid var(--ink)}
+.trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;font-weight:700;font-size:.92rem}
+.trust span{display:flex;align-items:center;gap:8px}
+.trust span::before{content:"✓";width:22px;height:22px;border-radius:50%;background:var(--grass);color:#fff;display:grid;place-items:center;font-size:.75rem}
+.sunblob{position:absolute;width:min(70vw,620px);aspect-ratio:1;border-radius:50%;right:-12%;top:-10%;background:radial-gradient(circle at 40% 40%,var(--sun),#ffb000 60%,transparent 61%);z-index:-1;animation:breathe 9s ease-in-out infinite}
 @keyframes breathe{50%{transform:scale(1.05) translate(-10px,10px)}}
+
+/* Preis-Sticker */
+.sticker{position:absolute;right:4%;top:8%;z-index:3;width:128px;height:128px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;text-align:center;transform:rotate(12deg);box-shadow:0 6px 0 #a3262a;animation:wob 4s ease-in-out infinite}
+.sticker b{display:block;font-family:var(--display);font-weight:900;font-size:1.9rem;line-height:1}
+.sticker small{font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+@keyframes wob{50%{transform:rotate(4deg) scale(1.05)}}
 
 /* 3D Karton */
 .stage{height:520px;display:grid;place-items:center;perspective:1100px;cursor:grab;touch-action:pan-y;user-select:none;position:relative}
 .stage:active{cursor:grabbing}
-.stage .hint{position:absolute;bottom:0;font-family:var(--mono);font-size:.75rem;color:var(--ink);background:var(--card);border-radius:999px;padding:5px 12px;border:1px solid var(--line)}
+.stage .hint{position:absolute;bottom:0;font-family:var(--mono);font-size:.75rem;background:var(--card);border-radius:999px;padding:5px 12px;border:1px solid var(--line)}
 .carton{--w:150px;--h:330px;--half:75px;width:var(--w);height:var(--h);position:relative;transform-style:preserve-3d;transform:translateY(30px) rotateX(-14deg) rotateY(var(--ry,-28deg))}
-.f{position:absolute;inset:0;backface-visibility:hidden;border-radius:4px;overflow:hidden;display:flex;flex-direction:column;padding:14px 12px;gap:8px;font-size:11px;line-height:1.3}
+.f{position:absolute;inset:0;backface-visibility:hidden;border-radius:4px;overflow:hidden;display:flex;flex-direction:column;padding:14px 12px;gap:8px;font-size:11px;line-height:1.3;color:var(--ink)}
 .f.front{transform:translateZ(var(--half));background:var(--card)}
 .f.back{transform:rotateY(180deg) translateZ(var(--half));background:var(--card)}
 .f.right{transform:rotateY(90deg) translateZ(var(--half));background:#eef1fb}
@@ -93,9 +102,9 @@ body.clean .check{display:none}
 .f .band{margin:-14px -12px 0;background:var(--cobalt);color:#fff;padding:14px 12px 16px;display:flex;flex-direction:column;align-items:center;gap:4px}
 .f .band .s{width:42px;height:42px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 6px #ffc82444}
 .f .band b{font-family:var(--display);font-size:13px;letter-spacing:.06em}
-.f .big{font-family:var(--display);font-weight:900;font-size:32px;text-align:center;color:var(--ink);margin-top:10px}
+.f .big{font-family:var(--display);font-weight:900;font-size:32px;text-align:center;margin-top:10px}
 .f .sub{font-family:var(--display);font-weight:700;font-size:15px;text-align:center}
-.f .fat{align-self:center;background:var(--sun);border-radius:999px;padding:4px 12px;font-family:var(--mono);font-size:14px;color:var(--ink)}
+.f .fat{align-self:center;background:var(--sun);border-radius:999px;padding:4px 12px;font-family:var(--mono);font-size:14px}
 .f .wave{margin-top:auto;height:44px;background:radial-gradient(14px 10px at 14px 0,transparent 98%,var(--cobalt) 100%) 0 0/28px 100% repeat-x;margin-inline:-12px;margin-bottom:-14px}
 .f h4{font-family:var(--display);font-size:12px;margin:0;border-bottom:3px solid var(--ink);padding-bottom:4px}
 .f table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:9.5px}
@@ -105,84 +114,95 @@ body.clean .check{display:none}
 .f .oval{border:2px solid var(--ink);border-radius:50%;padding:6px 4px;text-align:center;font-family:var(--mono);font-size:9px;width:90px}
 
 /* Ticker */
-.ticker{background:var(--ink);color:var(--milk);overflow:hidden;padding-block:14px;transform:rotate(-1.2deg);margin-block:18px 0;width:104%;margin-left:-2%}
+.ticker{background:var(--ink);color:var(--milk);overflow:hidden;padding-block:14px;transform:rotate(-1.2deg);margin-top:18px;width:104%;margin-left:-2%}
 .ticker-track{display:flex;width:max-content;animation:tick 32s linear infinite}
 .ticker span{font-family:var(--display);font-weight:700;font-size:clamp(1rem,2.2vw,1.4rem);padding-inline:22px;white-space:nowrap;display:flex;align-items:center;gap:22px}
 .ticker span::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--sun)}
 @keyframes tick{to{transform:translateX(-50%)}}
 
 /* Sections */
-section.slide{padding-block:clamp(56px,8vw,110px);position:relative;scroll-margin-top:64px}
+section.slide{padding-block:clamp(56px,8vw,110px);position:relative;scroll-margin-top:60px}
 section.blue{background:var(--cobalt);color:#fff}
-section.blue .muted{color:#c8d2ff}
 section.ink{background:var(--ink);color:var(--milk)}
-.sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:clamp(28px,4vw,48px);max-width:900px}
-.sec-head h2{font-size:clamp(2rem,5.5vw,4rem);font-weight:900}
-.sec-head p{font-size:1.1rem;color:var(--muted);max-width:60ch}
-section.blue .sec-head p,section.ink .sec-head p{color:#c8d2ff}
-.muted{color:var(--muted)}
+section.sun{background:var(--sun)}
+.sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:clamp(28px,4vw,48px);max-width:920px}
+.sec-head h2{font-size:clamp(2rem,5.4vw,3.9rem);font-weight:900}
+.sec-head p{font-size:1.12rem;color:var(--muted);max-width:60ch}
+section.blue .sec-head p,section.ink .sec-head p{color:var(--on-blue)}
+section.sun .sec-head p{color:var(--ink)}
 
 /* Bento */
 .bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
-.tile{background:var(--card);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0;border:1px solid var(--line);position:relative;overflow:hidden}
-.tile .k{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.tile .v{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,2.2vw,1.7rem);line-height:1.1}
-.tile small{color:var(--muted);font-size:.92rem}
-.span2{grid-column:span 2}.span3{grid-column:span 3}.span4{grid-column:span 4}.span6{grid-column:span 6}
+.tile{background:var(--card);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0;border:1px solid var(--line)}
+.tile .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tile .v{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,2.2vw,1.65rem);line-height:1.12}
+.tile small{color:var(--muted);font-size:.93rem}
+.span2{grid-column:span 2}.span3{grid-column:span 3}.span4{grid-column:span 4}
 .tile.price{background:var(--sun);border-color:transparent;justify-content:space-between}
-.tile.price .v{font-size:clamp(3rem,7vw,5.5rem);font-weight:900;letter-spacing:-.04em}
+.tile.price .v{font-size:clamp(3rem,7vw,5.4rem);font-weight:900;letter-spacing:-.04em}
 .tile.price small,.tile.price .k{color:var(--ink)}
 .tile.dark{background:var(--ink);color:var(--milk);border-color:transparent}
 .tile.dark .k,.tile.dark small{color:#aab4d4}
+.calc{display:flex;flex-direction:column;gap:10px}
+.calc label{font-weight:700;font-size:.92rem}
+.calc input[type=range]{width:100%;accent-color:var(--cobalt)}
+.calc .out{font-family:var(--display);font-weight:900;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--cobalt);line-height:1.1}
 
-/* Prozess */
-.process{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;counter-reset:p}
+/* Herstellung */
+.process{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;counter-reset:p;padding:0;margin:0}
 .process li{list-style:none;counter-increment:p;background:#ffffff14;border:1px solid #ffffff33;border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0}
 .process li::before{content:counter(p);font-family:var(--display);font-weight:900;font-size:2.2rem;color:var(--sun);line-height:1}
 .process b{font-family:var(--display);font-size:1rem}
 .process span{color:#d4dcff;font-size:.95rem}
-.process{padding:0;margin:0}
-.thermo{margin-top:28px;background:#ffffff10;border:1px solid #ffffff33;border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px}
-.thermo h3{font-size:1.1rem}
-.trow{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:14px;align-items:center}
+.two{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;margin-top:16px}
+.panel{background:#ffffff10;border:1px solid #ffffff33;border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.panel h3{font-size:1.1rem}
+.panel p{color:var(--on-blue)}
+.panel p b{color:#fff}
+.trow{display:grid;grid-template-columns:minmax(110px,170px) 1fr;gap:14px;align-items:center}
 .trow .lbl{font-weight:800;font-size:.95rem}
-.trow .lbl small{display:block;font-weight:400;color:#c8d2ff}
+.trow .lbl small{display:block;font-weight:400;color:var(--on-blue)}
 .tbar{height:34px;border-radius:999px;background:#ffffff1a;position:relative;overflow:hidden}
-.tbar i{position:absolute;inset:0 auto 0 0;border-radius:999px;background:linear-gradient(90deg,#ffe28a,var(--sun) 50%,#ff7a1a);display:flex;align-items:center;justify-content:flex-end;padding-right:12px;font-style:normal;font-family:var(--mono);font-size:.85rem;color:var(--ink);font-weight:500;white-space:nowrap}
+.tbar i{position:absolute;inset:0 auto 0 0;border-radius:999px;background:linear-gradient(90deg,#ffe28a,var(--sun) 50%,#ff7a1a);display:flex;align-items:center;justify-content:flex-end;padding-right:12px;font-style:normal;font-family:var(--mono);font-size:.85rem;color:var(--ink);white-space:nowrap}
 .tbar i.hl{box-shadow:0 0 0 3px #fff}
+.layers{display:flex;flex-direction:column;gap:6px}
+.layers div{border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem;display:flex;justify-content:space-between;gap:10px}
+.layers span{font-family:var(--mono);font-weight:500;font-size:.8rem}
 
 /* Nährwerte */
 .nutri-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
 .seg{display:inline-flex;background:var(--card);border:2px solid var(--ink);border-radius:999px;padding:4px;gap:4px}
-.seg button{border:0;background:transparent;border-radius:999px;padding:8px 16px;font-weight:800;font-size:.9rem}
+.seg button{border:0;background:transparent;border-radius:999px;padding:7px 14px;font-weight:800;font-size:.85rem}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--milk)}
 .label{background:var(--card);border:3px solid var(--ink);border-radius:10px;padding:18px 20px}
-.label .t{font-family:var(--display);font-weight:900;font-size:1.3rem;padding-bottom:8px;border-bottom:8px solid var(--ink);display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
-.label .t span{font-family:var(--mono);font-size:.8rem;font-weight:500}
+.label .t{font-family:var(--display);font-weight:900;font-size:1.25rem;padding-bottom:8px;border-bottom:8px solid var(--ink);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .nrow{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:9px 0;border-bottom:1px solid var(--line);align-items:center}
-.nrow.sub .n{padding-left:18px;color:var(--muted)}
+.nrow.sub .n{padding-left:18px;color:var(--muted);font-weight:600}
 .nrow .n{font-weight:800}
-.nrow .val{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.nrow .val{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;font-size:.92rem}
 .nrow .bar{grid-column:1/-1;height:6px;border-radius:9px;background:var(--milk);overflow:hidden}
 .nrow .bar i{display:block;height:100%;background:var(--cobalt);border-radius:9px;width:0;transition:width .6s cubic-bezier(.2,.8,.2,1)}
 .label .foot{font-size:.78rem;color:var(--muted);margin-top:10px}
-.facts{display:flex;flex-direction:column;gap:16px}
-.fact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;gap:18px;align-items:center}
-.fact .big{font-family:var(--display);font-weight:900;font-size:clamp(2rem,4vw,2.8rem);color:var(--cobalt);line-height:1;min-width:110px}
+.facts{display:flex;flex-direction:column;gap:14px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;display:flex;gap:18px;align-items:center}
+.fact .big{font-family:var(--display);font-weight:900;font-size:clamp(1.9rem,4vw,2.6rem);color:var(--cobalt);line-height:1;min-width:110px}
 
 /* Siegel */
-.seals{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px}
+.seals{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:16px}
 .seal{background:var(--card);color:var(--ink);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:transform .2s}
 .seal:hover{transform:translateY(-4px) rotate(-.6deg)}
 .seal svg{width:64px;height:64px}
 .seal h3{font-size:1rem}
 .seal p{color:var(--muted);font-size:.95rem}
 
-/* Haltbarkeit */
-.use-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:20px}
-.uses{display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start}
-.uses span{background:var(--card);border:2px solid var(--ink);border-radius:999px;padding:10px 16px;font-weight:800;transition:background .15s,transform .15s}
-.uses span:hover{background:var(--sun);transform:rotate(-2deg)}
+/* Verwendung & Pflege */
+.use-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px}
+.uses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-content:start}
+.use{background:var(--card);border:2px solid var(--ink);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:4px;transition:background .15s,transform .15s}
+.use:hover{background:var(--sun);transform:rotate(-1.5deg)}
+.use .e{font-size:1.6rem;line-height:1}
+.use b{font-family:var(--display);font-size:.95rem}
+.use span{font-size:.9rem;color:var(--muted)}
 .shelf{display:flex;flex-direction:column;gap:18px}
 .life{display:flex;flex-direction:column;gap:8px}
 .life .top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:800}
@@ -191,95 +211,83 @@ section.blue .sec-head p,section.ink .sec-head p{color:#c8d2ff}
 .life .track i{display:block;height:100%;border-radius:14px}
 .life.closed i{width:100%;background:repeating-linear-gradient(90deg,var(--cobalt) 0 calc(100%/13 - 3px),transparent calc(100%/13 - 3px) calc(100%/13))}
 .life.open i{width:4.4%;min-width:26px;background:var(--red)}
-.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px}
+.tips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .tips div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
 .tips b{display:block;font-family:var(--display);font-size:.9rem;margin-bottom:4px}
 
-/* USP */
-.usp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.usp div{border-top:6px solid var(--sun);padding-top:18px;display:flex;flex-direction:column;gap:8px}
-.usp h3{font-size:clamp(1.2rem,2vw,1.5rem)}
-.usp p{color:#c8d2ff}
+/* Vorteile (interaktiv) */
+.mvn{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:20px}
+.mvn-list{display:flex;flex-direction:column;gap:8px}
+.mvn-list button{text-align:left;border:2px solid #ffffff40;background:transparent;color:#fff;border-radius:16px;padding:14px 18px;font-weight:800;font-size:1rem;display:flex;justify-content:space-between;align-items:center;gap:10px;transition:background .15s,border-color .15s}
+.mvn-list button::after{content:"→";font-family:var(--display)}
+.mvn-list button[aria-selected="true"]{background:var(--sun);border-color:var(--sun);color:var(--ink)}
+.mvn-panel{background:var(--card);color:var(--ink);border-radius:var(--r);padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;gap:18px;justify-content:center}
+.mvn-panel .big{font-family:var(--display);font-weight:900;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.1}
+.mvn-panel .big em{font-style:normal;color:var(--cobalt)}
+.chain{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.chain div{border-radius:16px;padding:16px;background:var(--milk);display:flex;flex-direction:column;gap:6px}
+.chain div:nth-child(2){background:#e6ebff}
+.chain .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.chain b{font-family:var(--display);font-size:1rem;line-height:1.25}
+
+/* Vergleich */
+.cmp{overflow-x:auto;background:var(--card);border-radius:var(--r);border:1px solid var(--line)}
+.cmp table{width:100%;border-collapse:collapse;min-width:720px}
+.cmp th,.cmp td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp thead th{font-family:var(--display);font-size:.95rem;line-height:1.2}
+.cmp tbody th{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.cmp .me{background:#e6ebff}
+.cmp thead .me{background:var(--cobalt);color:#fff;border-radius:16px 16px 0 0}
+.cmp tr:last-child th,.cmp tr:last-child td{border-bottom:0}
+.y{color:var(--grass);font-weight:800}
+.n{color:var(--red);font-weight:800}
 
 /* Zielgruppen */
 .people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .person{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;gap:14px;align-items:flex-start}
-.person .av{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:1.2rem;background:var(--sun)}
-.person:nth-child(3n+2) .av{background:var(--cobalt);color:#fff}
-.person:nth-child(3n) .av{background:var(--grass);color:#fff}
+.person .av{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:1.5rem;background:var(--sun)}
+.person:nth-child(3n+2) .av{background:#e6ebff}
+.person:nth-child(3n) .av{background:#dff3e7}
 .person b{font-family:var(--display);font-size:.98rem;display:block;margin-bottom:4px}
 .person p{color:var(--muted);font-size:.95rem}
 .nope{margin-top:16px;background:#fde8e8;border:2px dashed var(--red);border-radius:var(--r);padding:22px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
-.nope .x{width:52px;height:52px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:1.5rem}
+.nope .x{width:52px;height:52px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:1.4rem}
 .nope h3{font-size:1.1rem;margin-bottom:8px}
 
-/* Teil 2 Divider */
-.divider{background:var(--sun);padding-block:clamp(60px,10vw,130px);overflow:hidden;position:relative}
-.divider h2{font-size:clamp(3rem,12vw,10rem);font-weight:900;line-height:.9}
-.divider p{font-size:1.2rem;margin-top:20px;max-width:50ch;font-weight:600}
-.divider .ring{position:absolute;right:-80px;bottom:-120px;width:380px;height:380px;border-radius:50%;border:50px solid var(--ink);opacity:.08}
-
-/* MVN */
-.mvn{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:20px}
-.mvn-list{display:flex;flex-direction:column;gap:8px}
-.mvn-list button{text-align:left;border:2px solid #ffffff40;background:transparent;color:#fff;border-radius:16px;padding:14px 18px;font-weight:800;font-size:1rem;display:flex;justify-content:space-between;align-items:center;transition:background .15s,border-color .15s}
-.mvn-list button::after{content:"→";font-family:var(--display)}
-.mvn-list button[aria-selected="true"]{background:var(--sun);border-color:var(--sun);color:var(--ink)}
-.mvn-panel{background:var(--card);color:var(--ink);border-radius:var(--r);padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;gap:18px}
-.chain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.chain div{border-radius:16px;padding:16px;background:var(--milk);display:flex;flex-direction:column;gap:6px}
-.chain div:nth-child(2){background:#e6ebff}
-.chain .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.chain b{font-family:var(--display);font-size:1rem;line-height:1.2}
-.say{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,2.6vw,2rem);line-height:1.2;color:var(--cobalt)}
-.say::before{content:"Das sagst du";display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:10px}
-
-/* Einwände Flip */
+/* FAQ Flip */
 .flips{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
-.flip{border:0;background:none;padding:0;perspective:1200px;text-align:left;min-height:230px}
+.flip{border:0;background:none;padding:0;perspective:1200px;text-align:left;min-height:220px}
 .flip .in{display:grid;height:100%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.3,1.3,.5,1)}
 .flip.on .in{transform:rotateY(180deg)}
 .flip .side{grid-area:1/1;backface-visibility:hidden;border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:12px;justify-content:space-between}
-.flip .q{background:var(--card);border:2px solid var(--ink)}
-.flip .q .txt{font-family:var(--display);font-weight:700;font-size:1.35rem;line-height:1.2}
+.flip .q{background:var(--card);color:var(--ink)}
+.flip .q .txt{font-family:var(--display);font-weight:700;font-size:1.3rem;line-height:1.2}
 .flip .a{background:var(--grass);color:#fff;transform:rotateY(180deg)}
 .flip .a .txt{font-size:1.05rem;font-weight:600}
 .flip .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
-.flip .q .tag{color:var(--red)}
+.flip .q .tag{color:var(--cobalt)}
 .flip .hint{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
 .flip .a .hint{color:#dff5e7}
 
-/* Ablauf */
-.flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;counter-reset:f;padding:0;margin:0;list-style:none;position:relative}
-.flow li{counter-increment:f;padding:0 14px 0 0;display:flex;flex-direction:column;gap:10px;position:relative}
-.flow li::before{content:counter(f);width:54px;height:54px;border-radius:50%;background:var(--sun);color:var(--ink);display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:1.3rem;position:relative;z-index:1}
-.flow li::after{content:"";position:absolute;top:26px;left:54px;right:0;height:3px;background:#ffffff33}
-.flow li:last-child::after{display:none}
-.flow b{font-family:var(--display);font-size:1rem}
-.flow p{color:#c8d2ff;font-size:.95rem}
-.flow q{color:#fff;font-style:italic}
+/* Abschluss */
+.close{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:28px;align-items:center}
+.close h2{font-size:clamp(2.6rem,7vw,5.6rem);font-weight:900;line-height:.98}
+.close ul{list-style:none;padding:0;margin-top:22px;gap:10px;font-weight:800;font-size:1.1rem}
+.close li{display:flex;gap:12px;align-items:center}
+.close li::before{content:"✓";flex:none;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--sun);display:grid;place-items:center}
+.pricebox{background:var(--ink);color:var(--milk);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:8px;transform:rotate(-2deg);box-shadow:12px 12px 0 var(--cobalt)}
+.pricebox .k{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#aab4d4}
+.pricebox .p{font-family:var(--display);font-weight:900;font-size:clamp(3.4rem,8vw,5.6rem);line-height:1;color:var(--sun);letter-spacing:-.04em}
+.pricebox p{color:#cfd6ee}
 
-/* Rollenspiel */
-.rp{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:20px}
-.dice{background:var(--card);border:3px solid var(--ink);border-radius:var(--r);padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:16px;box-shadow:10px 10px 0 var(--ink)}
-.dice .who{margin:0;display:flex;gap:14px;align-items:center}
-.dice .emoji{width:68px;height:68px;border-radius:20px;background:var(--sun);display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:1.6rem;flex:none}
-.dice h3{font-size:clamp(1.3rem,2.6vw,1.9rem)}
-.dice dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:0}
-.dice dt{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:3px}
-.dice dd{margin:0;font-weight:600}
-.dice .roll{align-self:flex-start;background:var(--cobalt);color:#fff;border:0;border-radius:999px;padding:14px 22px;font-weight:800;font-size:1rem;transition:transform .15s}
-.dice .roll:hover{transform:translateY(-2px) rotate(-1deg)}
-.dice.shake{animation:shake .4s}
-@keyframes shake{25%{transform:rotate(-1.5deg)}75%{transform:rotate(1.5deg)}}
-.timer{background:var(--ink);color:var(--milk);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
-.timer .t{font-family:var(--display);font-weight:900;font-size:clamp(3rem,7vw,4.6rem);line-height:1;font-variant-numeric:tabular-nums}
-.timer .t.end{color:var(--red)}
-.timer .row{display:flex;gap:8px;flex-wrap:wrap}
-.timer button{border:2px solid var(--milk);background:transparent;color:var(--milk);border-radius:999px;padding:8px 16px;font-weight:800}
-.timer button.go{background:var(--sun);border-color:var(--sun);color:var(--ink)}
-.watch{font-size:.92rem;color:#aab4d4}
-.watch b{color:var(--milk)}
+/* Bogen kompakt */
+.sheet{background:var(--card);border-radius:var(--r);border:1px solid var(--line);overflow:hidden}
+.sheet dl{margin:0;display:grid;grid-template-columns:minmax(150px,240px) 1fr}
+.sheet dt,.sheet dd{margin:0;padding:14px 20px;border-bottom:1px solid var(--line)}
+.sheet dt{font-weight:800;background:#f0f3fb;display:flex;gap:10px;align-items:baseline}
+.sheet dt::before{content:"✓";color:var(--grass);font-weight:900}
+.sheet dd a{font-family:var(--mono);font-size:.75rem;color:var(--cobalt);margin-left:8px;white-space:nowrap}
+.sheet dl > :nth-last-child(-n+2){border-bottom:0}
 
 footer{background:var(--ink);color:#aab4d4;padding-block:40px calc(40px + env(safe-area-inset-bottom,0px));font-size:.9rem}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
@@ -292,34 +300,31 @@ footer b{color:var(--milk)}
 .pnav .count{font-family:var(--mono);min-width:64px;text-align:center}
 body.present .pnav{display:flex}
 body.present .nav,body.present footer,body.present .ticker{display:none}
-body.present section.slide,body.present header.slide{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-bottom:110px}
-body.present section.slide[hidden],body.present header.slide[hidden]{display:none}
-body.present .progress{display:block}
+body.present .slide{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-bottom:110px}
+body.present .slide[hidden]{display:none}
 .progress{display:none;position:fixed;top:0;left:0;height:5px;background:var(--sun);z-index:31;transition:width .3s}
+body.present .progress{display:block}
 
-@media (max-width:900px){
+@media (max-width:980px){
+  .links{display:none}
   .hero-grid{grid-template-columns:1fr}
   .stage{height:460px}
   .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .span2,.span3,.span4,.span6{grid-column:span 2}
+  .span2,.span3,.span4{grid-column:span 2}
   .span2.half{grid-column:span 1}
   .process{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .nutri-grid,.use-grid,.mvn,.rp{grid-template-columns:1fr}
-  .usp{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .two,.nutri-grid,.use-grid,.mvn,.close{grid-template-columns:1fr}
   .people{grid-template-columns:1fr 1fr}
-  .flow{grid-template-columns:1fr 1fr 1fr;row-gap:28px}
-  .flow li::after{display:none}
 }
 @media (max-width:560px){
-  .bento{grid-template-columns:1fr}
-  .span2,.span3,.span4,.span6,.span2.half{grid-column:span 1}
-  .process,.usp,.people{grid-template-columns:1fr}
-  .flow{grid-template-columns:1fr 1fr}
-  .chain{grid-template-columns:1fr}
+  .bento,.process,.people,.uses,.tips,.chain{grid-template-columns:1fr}
+  .span2,.span3,.span4,.span2.half{grid-column:span 1}
   .trow{grid-template-columns:1fr;gap:6px}
-  .nav .logo span{display:none}
-  .pill{padding:7px 12px;font-size:.8rem}
   .fact{flex-direction:column;align-items:flex-start}
+  .sheet dl{grid-template-columns:1fr}
+  .sheet dt{border-bottom:0;padding-bottom:4px}
+  .sticker{width:100px;height:100px;right:2%;top:4%}
+  .sticker b{font-size:1.5rem}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -332,11 +337,14 @@ body.present .progress{display:block}
 
 <nav class="nav" aria-label="Hauptmenü">
   <div class="wrap">
-    <a class="logo" href="#start"><i></i><span>Warenbogen</span></a>
-    <div class="nav-btns">
-      <button class="pill" id="toggle-check" type="button" aria-pressed="false">Prüfhinweise aus</button>
-      <button class="pill go" id="toggle-present" type="button">Präsentieren ▶</button>
+    <a class="logo" href="#start"><i></i>Bio-H-Milch 1,5 %</a>
+    <div class="links">
+      <a href="#ueberblick">Überblick</a>
+      <a href="#vorteile">Vorteile</a>
+      <a href="#vergleich">Vergleich</a>
+      <a href="#bogen">Warenbogen</a>
     </div>
+    <button class="pill" id="toggle-present" type="button">Präsentieren ▶</button>
   </div>
 </nav>
 
@@ -345,16 +353,21 @@ body.present .progress{display:block}
   <div class="sunblob" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">Warenbeschreibungsbogen · Molkereiprodukt</span>
-      <h1>Bio Sonne <span class="blue">Bio‑H‑Milch</span><span class="outline">1,5 % Fett</span></h1>
-      <p class="lead">Fettarm, ultrahocherhitzt, im 1-Liter-Karton. <b>Monatelang haltbar ohne Kühlschrank</b> und in <b>Bio-Qualität zum Discounterpreis.</b></p>
-      <div class="who">
-        <span><b>Jona Gotthardt</b> · NORMA Staufenberg</span>
-        <span>Fortbildung Zentrale Schönstadt</span>
-        <span class="num">18.09.2026</span>
+      <span class="eyebrow">Bio Sonne · Bio-H-Milch · 1 Liter</span>
+      <h1>Bio, das <span class="blue">im Schrank</span> auf Sie wartet.<span class="outline">1,5 % Fett</span></h1>
+      <p class="lead">Echte Bio-Milch, die ungeöffnet <b>monatelang ohne Kühlschrank</b> hält, <b>leicht im Fett</b> ist und trotzdem voller Eiweiß und Calcium steckt. Und das für rund <b>1,19 € pro Liter.</b></p>
+      <div class="cta">
+        <a class="btn main" href="#vorteile">Ihre Vorteile ansehen ↓</a>
+        <a class="btn ghost" href="#bogen">Alle Fakten</a>
+      </div>
+      <div class="trust">
+        <span>EU-Bio zertifiziert</span>
+        <span>Ohne Zusatzstoffe</span>
+        <span>Ohne Gentechnik</span>
       </div>
     </div>
-    <div class="stage" id="stage" aria-label="Drehbarer Milchkarton. Mit der Maus oder dem Finger ziehen.">
+    <div class="stage" id="stage" aria-label="Drehbarer Milchkarton. Zum Drehen ziehen.">
+      <div class="sticker" aria-hidden="true"><div><small>nur ca.</small><b>1,19 €</b><small>pro Liter</small></div></div>
       <div class="carton" id="carton">
         <div class="fin"></div>
         <div class="roof r1"><div class="cap"></div></div>
@@ -384,12 +397,12 @@ body.present .progress{display:block}
         <div class="f back">
           <h4>Bio-Qualität</h4>
           <div class="leafy">EU-BIO</div>
-          <p class="mono" style="font-size:9px">DE-ÖKO-0XX<br>Deutsche Landwirtschaft</p>
+          <p style="font-family:var(--mono);font-size:9px">DE-ÖKO-0XX<br>Deutsche Landwirtschaft</p>
           <div class="oval">DE<br>XX 000<br>EG</div>
           <p style="margin-top:auto">Ultrahocherhitzt, homogenisiert. 1 Liter.</p>
         </div>
         <div class="f left">
-          <h4>So passt's</h4>
+          <h4>Passt zu</h4>
           <p>☕ Kaffee &amp; Tee</p>
           <p>🥣 Müsli</p>
           <p>🍮 Pudding &amp; Soßen</p>
@@ -402,63 +415,86 @@ body.present .progress{display:block}
   </div>
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span>EU-BIO</span><span>1 LITER</span><span>1,5 % FETT</span><span>135–150 °C</span><span>OHNE KÜHLUNG HALTBAR</span><span>3,4 g EIWEISS</span><span>HOMOGENISIERT</span><span>SCHRAUBVERSCHLUSS</span>
-      <span>EU-BIO</span><span>1 LITER</span><span>1,5 % FETT</span><span>135–150 °C</span><span>OHNE KÜHLUNG HALTBAR</span><span>3,4 g EIWEISS</span><span>HOMOGENISIERT</span><span>SCHRAUBVERSCHLUSS</span>
+      <span>EU-BIO</span><span>1 LITER</span><span>1,5 % FETT</span><span>OHNE KÜHLUNG HALTBAR</span><span>3,4 g EIWEISS</span><span>OHNE ZUSATZSTOFFE</span><span>SCHRAUBVERSCHLUSS</span><span>CA. 1,19 €</span>
+      <span>EU-BIO</span><span>1 LITER</span><span>1,5 % FETT</span><span>OHNE KÜHLUNG HALTBAR</span><span>3,4 g EIWEISS</span><span>OHNE ZUSATZSTOFFE</span><span>SCHRAUBVERSCHLUSS</span><span>CA. 1,19 €</span>
     </div>
   </div>
 </header>
 
 <main>
-<!-- STECKBRIEF -->
-<section class="slide" id="steckbrief">
+<!-- ÜBERBLICK -->
+<section class="slide" id="ueberblick">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Artikel · Herkunft · Maße · Preis</span><h2>Der Steckbrief.</h2></div>
+    <div class="sec-head"><span class="eyebrow">Artikelbezeichnung · Herkunft · Zahlenangaben/Maße · Preis</span><h2>Alles Wichtige auf einen Blick.</h2></div>
     <div class="bento">
-      <div class="tile price span2">
-        <span class="k">Preis pro Liter</span>
-        <span class="v num">1,19 €</span>
-        <small>ca. <span class="check">Filialpreis prüfen</span><br>Pro Glas (200 ml) rund <b>24 Cent</b>.</small>
-      </div>
-      <div class="tile span4 dark">
+      <div class="tile dark span4">
         <span class="k">Artikelbezeichnung</span>
-        <span class="v">Bio-H-Milch, fettarm, 1,5 % Fett</span>
-        <small>ultrahocherhitzt und homogenisiert · Marke Bio Sonne (Eigenmarke von NORMA)</small>
+        <span class="v">Bio Sonne Bio-H-Milch, fettarm, 1,5 % Fett</span>
+        <small>ultrahocherhitzt und homogenisiert · Eigenmarke von NORMA</small>
+      </div>
+      <div class="tile price span2">
+        <span class="k">Preis</span>
+        <span class="v num">1,19 €</span>
+        <small>ca. pro Liter</small>
       </div>
       <div class="tile span2 half">
         <span class="k">Herkunft</span>
-        <span class="v">Deutschland <span class="check">prüfen</span></span>
-        <small>steht unter dem EU-Bio-Logo, z. B. „Deutsche Landwirtschaft“</small>
+        <span class="v">Deutschland</span>
+        <small>Milch aus deutscher Bio-Landwirtschaft</small>
       </div>
       <div class="tile span2 half">
-        <span class="k">Inhalt</span>
-        <span class="v num">1 Liter</span>
-        <small>Getränkekarton mit Schraubverschluss</small>
+        <span class="k">Inhalt · Gewicht</span>
+        <span class="v num">1 l · ca. 1,03 kg</span>
+        <small>Karton mit Schraubverschluss</small>
       </div>
       <div class="tile span2">
-        <span class="k">Fettgehalt</span>
-        <span class="v num">1,5 %</span>
-        <small>Vollmilch zum Vergleich: 3,5–3,8 %</small>
+        <span class="k">Haltbarkeit ungeöffnet</span>
+        <span class="v">ca. 3 Monate</span>
+        <small>bei Raumtemperatur, bis zum MHD</small>
+      </div>
+      <div class="tile span3">
+        <span class="k">Fett · Energie</span>
+        <span class="v num">1,5 % · 47 kcal</span>
+        <small>pro 100 ml. Vollmilch hat zum Vergleich 3,5 % Fett und 64 kcal.</small>
+      </div>
+      <div class="tile span3 calc">
+        <span class="k">Was kostet Ihr Glas Milch?</span>
+        <label for="glas">Glasgröße: <span id="glas-ml">200</span> ml</label>
+        <input type="range" id="glas" min="100" max="500" step="50" value="200">
+        <span class="out num" id="glas-out">≈ 24 Cent</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HERSTELLUNG -->
+<!-- HERSTELLUNG & MATERIAL -->
 <section class="slide blue" id="herstellung">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Material · Herstellung</span><h2>Vom Bio-Hof in den Karton.</h2><p>Inhalt: 100 % Bio-Kuhmilch, keine Zusatzstoffe. Verpackung: Verbundkarton aus Pappe, Kunststoff und Alu.</p></div>
+    <div class="sec-head"><span class="eyebrow">Herstellung · Material</span><h2>Vom Bio-Hof in Ihren Karton.</h2><p>Keine Zusätze, keine Tricks. Nur Bio-Milch, schonend haltbar gemacht.</p></div>
     <ol class="process">
       <li><b>Bio-Rohmilch</b><span>von Kühen mit Auslauf oder Weidegang und Bio-Futter ohne Gentechnik</span></li>
       <li><b>Fett einstellen</b><span>Rahm wird abgetrennt, bis genau 1,5 % Fett übrig sind</span></li>
-      <li><b>Homogenisieren</b><span>Fettkügelchen werden zerkleinert, damit sich keine Rahmschicht bildet</span></li>
+      <li><b>Homogenisieren</b><span>Fettkügelchen werden fein verteilt, damit sich keine Rahmschicht bildet</span></li>
       <li><b>Ultrahocherhitzen</b><span>wenige Sekunden auf 135–150 °C, danach ist die Milch keimfrei</span></li>
       <li><b>Keimfrei abfüllen</b><span>luftdicht in den Karton, deshalb hält sie ungeöffnet so lange</span></li>
     </ol>
-    <div class="thermo" id="thermo">
-      <h3>Warum H-Milch so lange hält: Es kommt auf die Temperatur an</h3>
-      <div class="trow"><span class="lbl">Frischmilch<small>pasteurisiert</small></span><div class="tbar"><i data-w="47">72–75 °C</i></div></div>
-      <div class="trow"><span class="lbl">ESL-Milch<small>„länger frisch“</small></span><div class="tbar"><i data-w="79">120–127 °C</i></div></div>
-      <div class="trow"><span class="lbl">H-Milch<small>ultrahocherhitzt</small></span><div class="tbar"><i class="hl" data-w="94">135–150 °C</i></div></div>
+    <div class="two">
+      <div class="panel" id="thermo">
+        <h3>Das Geheimnis der langen Haltbarkeit</h3>
+        <div class="trow"><span class="lbl">Frischmilch<small>pasteurisiert</small></span><div class="tbar"><i data-w="47">72–75 °C</i></div></div>
+        <div class="trow"><span class="lbl">ESL-Milch<small>„länger frisch“</small></span><div class="tbar"><i data-w="79">120–127 °C</i></div></div>
+        <div class="trow"><span class="lbl">H-Milch<small>ultrahocherhitzt</small></span><div class="tbar"><i class="hl" data-w="94">135–150 °C</i></div></div>
+      </div>
+      <div class="panel">
+        <h3>Material</h3>
+        <p><b>Inhalt:</b> 100 % Bio-Kuhmilch. Sonst nichts.</p>
+        <div class="layers">
+          <div style="background:#ffffff22">Karton <span>Stabilität · ca. 75 %</span></div>
+          <div style="background:#ffffff16">Kunststoff (PE) <span>Dichtheit · ca. 20 %</span></div>
+          <div style="background:#ffffff0c">Aluminium <span>Licht- und Luftschutz · ca. 5 %</span></div>
+        </div>
+        <p>Der Verbundkarton schützt die Milch vor Licht und Sauerstoff und wird über den Gelben Sack recycelt.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -466,18 +502,18 @@ body.present .progress{display:block}
 <!-- NÄHRWERTE -->
 <section class="slide" id="naehrwerte">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Zahlenangaben</span><h2>Die Nährwerte.</h2><p>Die Balken zeigen, wie viel Prozent der Tagesreferenzmenge eines Erwachsenen enthalten sind. <span class="check">Typische Werte, mit Packung vergleichen</span></p></div>
+    <div class="sec-head"><span class="eyebrow">Zahlenangaben · Nährwerte</span><h2>Leicht im Fett. Stark im Inhalt.</h2><p>Die Balken zeigen, wie viel Prozent Ihres Tagesbedarfs schon drinstecken.</p></div>
     <div class="nutri-grid">
       <div class="label">
-        <div class="t">Nährwerte <span class="seg" role="group" aria-label="Menge wählen"><button type="button" id="per100" aria-pressed="true">100 ml</button><button type="button" id="perGlas" aria-pressed="false">1 Glas · 200 ml</button></span></div>
+        <div class="t">Nährwerte <span class="seg" role="group" aria-label="Menge wählen"><button type="button" id="per100" aria-pressed="true">100 ml</button><button type="button" id="perGlas" aria-pressed="false">1 Glas</button></span></div>
         <div id="nrows"></div>
-        <p class="foot">Referenzmengen nach LMIV: 2000 kcal, 70 g Fett, 20 g gesättigte Fettsäuren, 260 g Kohlenhydrate, 90 g Zucker, 50 g Eiweiß, 6 g Salz, 800 mg Calcium.</p>
+        <p class="foot">1 Glas = 200 ml. Referenzmengen für einen durchschnittlichen Erwachsenen (LMIV): 2000 kcal, 70 g Fett, 20 g gesättigte Fettsäuren, 260 g Kohlenhydrate, 90 g Zucker, 50 g Eiweiß, 6 g Salz, 800 mg Calcium.</p>
       </div>
       <div class="facts">
-        <div class="fact"><span class="big num">≈ 7 g</span><p><b>Eiweiß pro Glas.</b> Gut für Muskeln, Sportler und Kinder.</p></div>
-        <div class="fact"><span class="big num">30 %</span><p><b>des Calcium-Tagesbedarfs</b> stecken in einem Glas. Wichtig für Knochen und Zähne.</p></div>
-        <div class="fact"><span class="big num">–40</span><p><b>kcal pro Glas</b> gegenüber Vollmilch mit 3,5 % Fett.</p></div>
-        <div class="fact"><span class="big num">0 g</span><p><b>zugesetzter Zucker.</b> Die 4,8 g Zucker sind natürlicher Milchzucker.</p></div>
+        <div class="fact"><span class="big num">≈ 7 g</span><p><b>Eiweiß pro Glas.</b> Gut für Muskeln, für Sportler und für Kinder.</p></div>
+        <div class="fact"><span class="big num">30 %</span><p><b>Ihres Calcium-Tagesbedarfs</b> in einem Glas. Gut für Knochen und Zähne.</p></div>
+        <div class="fact"><span class="big num">–34</span><p><b>kcal pro Glas</b> gegenüber Vollmilch. Bei einem Glas am Tag spart das im Jahr über 12.000 kcal.</p></div>
+        <div class="fact"><span class="big num">0 g</span><p><b>zugesetzter Zucker.</b> Die 4,8 g sind natürlicher Milchzucker.</p></div>
       </div>
     </div>
   </div>
@@ -486,166 +522,170 @@ body.present .progress{display:block}
 <!-- KENNZEICHEN -->
 <section class="slide ink" id="kennzeichen">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Kennzeichen · Gütesiegel</span><h2>Was auf der Packung steht.</h2></div>
+    <div class="sec-head"><span class="eyebrow">Kennzeichen · Gütezeichen</span><h2>Bio, das kontrolliert wird.</h2><p>Diese Zeichen auf der Packung garantieren Ihnen, dass drin ist, was draufsteht.</p></div>
     <div class="seals">
       <div class="seal">
         <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="10" fill="#16a05a"/><g fill="#fff"><circle cx="32" cy="14" r="2.4"/><circle cx="44" cy="20" r="2.4"/><circle cx="48" cy="32" r="2.4"/><circle cx="44" cy="44" r="2.4"/><circle cx="32" cy="50" r="2.4"/><circle cx="20" cy="44" r="2.4"/><circle cx="16" cy="32" r="2.4"/><circle cx="20" cy="20" r="2.4"/></g></svg>
-        <h3>EU-Bio-Logo</h3><p>Pflicht auf jeder verpackten Bio-Ware in der EU. Darunter stehen Kontrollstellen-Code und Herkunft.</p>
+        <h3>EU-Bio-Logo</h3><p>Gesetzlich geschützt. Nur Ware, die nach der EU-Öko-Verordnung erzeugt wurde, darf es tragen.</p>
       </div>
       <div class="seal">
         <svg viewBox="0 0 64 64" aria-hidden="true"><polygon points="32,3 58,18 58,46 32,61 6,46 6,18" fill="#fff" stroke="#16a05a" stroke-width="4"/><text x="32" y="38" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="900" font-size="15" fill="#16a05a">Bio</text></svg>
-        <h3>Deutsches Bio-Siegel</h3><p>Das Sechseck ist freiwillig. Es gelten dieselben Regeln wie beim EU-Logo.</p>
+        <h3>Deutsches Bio-Siegel</h3><p>Das bekannte Sechseck. Es steht für dieselben strengen Regeln wie das EU-Logo.</p>
       </div>
       <div class="seal">
         <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="10" fill="#e6ebff"/><text x="32" y="30" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#1d3fe0">DE-ÖKO</text><text x="32" y="45" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#1d3fe0">0XX</text></svg>
-        <h3>Öko-Kontrollstelle <span class="check">ablesen</span></h3><p>Der Code zeigt, welche Stelle den Betrieb mindestens einmal im Jahr kontrolliert.</p>
+        <h3>Öko-Kontrollnummer</h3><p>Zeigt die unabhängige Stelle, die den Betrieb mindestens einmal im Jahr kontrolliert.</p>
       </div>
       <div class="seal">
         <svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="29" ry="20" fill="#fff" stroke="#0a1633" stroke-width="3"/><text x="32" y="36" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#0a1633">DE · EG</text></svg>
-        <h3>Identitätskennzeichen</h3><p>Ovales Zeichen mit Land, Betriebsnummer und „EG“. Daran erkennt man die Molkerei.</p>
+        <h3>Identitätskennzeichen</h3><p>Das Oval verrät, in welcher zugelassenen Molkerei Ihre Milch abgefüllt wurde.</p>
       </div>
       <div class="seal">
         <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="10" fill="#ffc824"/><text x="32" y="38" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="900" font-size="14" fill="#0a1633">MHD</text></svg>
-        <h3>Pflichtangaben</h3><p>MHD, Füllmenge, Fettgehalt, Nährwerte, Lagerhinweis und Name des Inverkehrbringers.</p>
+        <h3>Mindesthaltbarkeit</h3><p>Bis zu diesem Datum garantiert der Hersteller die volle Qualität, ungeöffnet und richtig gelagert.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VERWENDUNG -->
+<!-- VERWENDUNG & PFLEGE -->
 <section class="slide" id="verwendung">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Verwendungszweck · Bedienung und Pflege</span><h2>Verwenden &amp; richtig lagern.</h2></div>
+    <div class="sec-head"><span class="eyebrow">Verwendungszweck · Bedienung/Pflege</span><h2>Vom Frühstück bis zum Dessert.</h2><p>Eine Milch für alles. Und so lagern Sie sie richtig.</p></div>
     <div class="use-grid">
       <div class="uses">
-        <span>Pur trinken</span><span>Kaffee</span><span>Cappuccino</span><span>Tee</span><span>Müsli</span><span>Cornflakes</span><span>Porridge</span><span>Pudding</span><span>Soßen</span><span>Pfannkuchen</span><span>Kartoffelpüree</span><span>Shakes</span><span>Smoothies</span>
+        <div class="use"><span class="e">🥛</span><b>Pur trinken</b><span>am besten gut gekühlt</span></div>
+        <div class="use"><span class="e">☕</span><b>Kaffee &amp; Tee</b><span>schäumt schön für Cappuccino</span></div>
+        <div class="use"><span class="e">🥣</span><b>Müsli &amp; Porridge</b><span>der Klassiker am Morgen</span></div>
+        <div class="use"><span class="e">🍮</span><b>Pudding &amp; Soßen</b><span>gelingt cremig und leicht</span></div>
+        <div class="use"><span class="e">🥞</span><b>Backen</b><span>Pfannkuchen, Waffeln, Kuchen</span></div>
+        <div class="use"><span class="e">🥤</span><b>Shakes</b><span>mit Obst zum Smoothie</span></div>
       </div>
       <div class="shelf">
-        <div class="life closed"><div class="top">Ungeöffnet, bei Raumtemperatur <span>ca. 90 Tage · bis MHD</span></div><div class="track"><i></i></div></div>
-        <div class="life open"><div class="top">Geöffnet, im Kühlschrank bis 7 °C <span>ca. 3–4 Tage</span></div><div class="track"><i></i></div></div>
+        <div class="life closed"><div class="top">Ungeöffnet, im Vorratsschrank <span>ca. 90 Tage</span></div><div class="track"><i></i></div></div>
+        <div class="life open"><div class="top">Geöffnet, im Kühlschrank bis 7 °C <span>3–4 Tage</span></div><div class="track"><i></i></div></div>
         <div class="tips">
-          <div><b>Schütteln</b>vor dem Gebrauch kurz schütteln</div>
-          <div><b>Zudrehen</b>Schraubverschluss schützt vor Gerüchen</div>
-          <div><b>Entsorgen</b>Karton flach drücken, Gelber Sack</div>
+          <div><b>Schütteln</b>Vor dem Gebrauch kurz schütteln.</div>
+          <div><b>Zudrehen</b>Der Schraubverschluss hält dicht und schützt vor Gerüchen.</div>
+          <div><b>Kühl stellen</b>Nach dem Öffnen immer zurück in den Kühlschrank.</div>
+          <div><b>Entsorgen</b>Karton flach drücken und in den Gelben Sack geben.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- USP -->
-<section class="slide blue" id="besonderheiten">
+<!-- VORTEILE -->
+<section class="slide blue" id="vorteile">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Besonderheiten · Alleinstellungsmerkmale</span><h2>Darum diese Milch.</h2></div>
-    <div class="usp">
-      <div><h3>Bio zum Discounterpreis</h3><p>Kontrollierte Bio-Qualität, ohne viel mehr auszugeben als für konventionelle Milch.</p></div>
-      <div><h3>Vorrat ohne Kühlschrank</h3><p>Monatelang haltbar im Schrank. Weniger Wege, weniger weggeworfene Milch.</p></div>
-      <div><h3>Leicht, aber vollwertig</h3><p>Weniger Fett als Vollmilch, genauso viel Eiweiß und Calcium.</p></div>
-      <div><h3>Gute Tierhaltung</h3><p>Mehr Platz, Auslauf oder Weide, Bio-Futter ohne Gentechnik, keine vorbeugenden Antibiotika.</p></div>
+    <div class="sec-head"><span class="eyebrow">Besonderheiten · Alleinstellungsmerkmale</span><h2>Darum lohnt sich diese Milch für Sie.</h2><p>Klicken Sie sich durch die Merkmale.</p></div>
+    <div class="mvn">
+      <div class="mvn-list" role="tablist" id="mvn-list"></div>
+      <div class="mvn-panel" role="tabpanel" id="mvn-panel" aria-live="polite">
+        <p class="big" id="m-s"></p>
+        <div class="chain">
+          <div><span class="k">Merkmal</span><b id="m-m"></b></div>
+          <div><span class="k">Ihr Vorteil</span><b id="m-v"></b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERGLEICH -->
+<section class="slide" id="vergleich">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Etc. · Vergleich</span><h2>Der direkte Vergleich.</h2><p>So schneidet die Bio-H-Milch gegen die Alternativen im Regal ab.</p></div>
+    <div class="cmp">
+      <table>
+        <thead><tr><th></th><th class="me">Bio-H-Milch 1,5 %</th><th>H-Milch 1,5 % (konventionell)</th><th>Frische Bio-Milch</th><th>Haferdrink</th></tr></thead>
+        <tbody>
+          <tr><th>Bio-Qualität</th><td class="me y">✓ ja</td><td class="n">✕ nein</td><td class="y">✓ ja</td><td>je nach Produkt</td></tr>
+          <tr><th>Ungeöffnet haltbar</th><td class="me y">ca. 3 Monate, ohne Kühlung</td><td class="y">ca. 3 Monate, ohne Kühlung</td><td class="n">ca. 1 Woche, gekühlt</td><td class="y">mehrere Monate</td></tr>
+          <tr><th>Eiweiß / 100 ml</th><td class="me y">3,4 g</td><td>3,4 g</td><td>3,4 g</td><td class="n">ca. 1 g</td></tr>
+          <tr><th>Calcium natürlich enthalten</th><td class="me y">✓ ja</td><td class="y">✓ ja</td><td class="y">✓ ja</td><td class="n">nur wenn zugesetzt</td></tr>
+          <tr><th>Für Vorrat geeignet</th><td class="me y">✓ ja</td><td class="y">✓ ja</td><td class="n">✕ nein</td><td class="y">✓ ja</td></tr>
+          <tr><th>Preis pro Liter</th><td class="me"><b>ca. 1,19 €</b></td><td>etwas günstiger</td><td>meist teurer</td><td>meist teurer</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
 <!-- ZIELGRUPPEN -->
-<section class="slide" id="zielgruppen">
+<section class="slide" id="zielgruppen" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Für wen geeignet?</span><h2>Die Zielgruppen.</h2></div>
+    <div class="sec-head"><span class="eyebrow">Für wen ist dieses Produkt geeignet?</span><h2>Perfekt für Sie, wenn …</h2></div>
     <div class="people">
-      <div class="person"><span class="av">F</span><div><b>Familien</b><p>brauchen viel Milch und kaufen gern auf Vorrat</p></div></div>
-      <div class="person"><span class="av">G</span><div><b>Gesundheitsbewusste</b><p>wollen weniger Fett, aber viel Eiweiß</p></div></div>
-      <div class="person"><span class="av">B</span><div><b>Bio-Käufer mit kleinem Budget</b><p>wollen Bio, ohne viel mehr zu zahlen</p></div></div>
-      <div class="person"><span class="av">S</span><div><b>Singles und Senioren</b><p>trinken wenig, im Schrank verdirbt nichts</p></div></div>
-      <div class="person"><span class="av">C</span><div><b>Camper, Büros, Kantinen</b><p>lagern ohne Kühlschrank</p></div></div>
-      <div class="person"><span class="av">K</span><div><b>Kaffeetrinker</b><p>bekommen schönen, stabilen Milchschaum</p></div></div>
+      <div class="person"><span class="av">👨‍👩‍👧</span><div><b>… Sie Familie haben</b><p>und gern einen Vorrat im Schrank haben.</p></div></div>
+      <div class="person"><span class="av">🏃</span><div><b>… Sie auf Ihre Figur achten</b><p>und wenig Fett, aber viel Eiweiß wollen.</p></div></div>
+      <div class="person"><span class="av">🌱</span><div><b>… Ihnen Bio wichtig ist</b><p>Sie aber nicht viel mehr bezahlen möchten.</p></div></div>
+      <div class="person"><span class="av">🏠</span><div><b>… Sie allein wohnen</b><p>und nicht wollen, dass Milch schlecht wird.</p></div></div>
+      <div class="person"><span class="av">⛺</span><div><b>… Sie campen oder im Büro sind</b><p>wo es keinen großen Kühlschrank gibt.</p></div></div>
+      <div class="person"><span class="av">☕</span><div><b>… Sie Kaffee lieben</b><p>und schönen Milchschaum wollen.</p></div></div>
     </div>
     <div class="nope">
-      <span class="x">✕</span>
-      <div><h3>Nicht geeignet für</h3>
+      <span class="x">!</span>
+      <div><h3>Ehrlich gesagt: Nicht das Richtige, wenn …</h3>
         <ul>
-          <li>Menschen mit Laktoseintoleranz: laktosefreie Milch empfehlen</li>
-          <li>Menschen mit Milcheiweißallergie</li>
-          <li>Veganer: Haferdrink oder Sojadrink empfehlen</li>
-          <li>Säuglinge unter 1 Jahr als Getränk</li>
+          <li>Sie Laktose nicht vertragen. Dann ist laktosefreie Milch besser für Sie.</li>
+          <li>Sie eine Milcheiweißallergie haben.</li>
+          <li>Sie sich vegan ernähren. Dann passt ein Hafer- oder Sojadrink.</li>
+          <li>Sie ein Baby unter 1 Jahr damit füttern möchten.</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TEIL 2 -->
-<section class="slide divider" id="teil2">
-  <div class="ring" aria-hidden="true"></div>
+<!-- FAQ -->
+<section class="slide ink" id="fragen">
   <div class="wrap">
-    <span class="eyebrow">Teil 2</span>
-    <h2>Jetzt wird verkauft.</h2>
-    <p>Mit dem Warenwissen überzeugen: Argumente, Einwände, Gesprächsablauf und das Rollenspiel im Innen- und Außenkreis.</p>
-  </div>
-</section>
-
-<!-- MVN -->
-<section class="slide blue" id="argumente">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Verkaufsargumente</span><h2>Merkmal → Vorteil → Nutzen.</h2><p>Nenn dem Kunden immer, was er davon hat, und sprich ihn in der Sie-Form an. Tipp: Merkmal anklicken.</p></div>
-    <div class="mvn">
-      <div class="mvn-list" role="tablist" id="mvn-list"></div>
-      <div class="mvn-panel" role="tabpanel" id="mvn-panel" aria-live="polite">
-        <div class="chain">
-          <div><span class="k">Merkmal</span><b id="m-m"></b></div>
-          <div><span class="k">Vorteil</span><b id="m-v"></b></div>
-          <div><span class="k">Nutzen</span><b id="m-n"></b></div>
-        </div>
-        <p class="say" id="m-s"></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EINWÄNDE -->
-<section class="slide" id="einwaende">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Einwandbehandlung</span><h2>Wenn der Kunde zögert.</h2><p>Erst zustimmen, dann den Nutzen zeigen. Karte anklicken, um die Antwort zu sehen.</p></div>
+    <div class="sec-head"><span class="eyebrow">Etc. · Häufige Fragen</span><h2>Sie fragen, wir antworten.</h2><p>Klicken Sie auf eine Karte, um die Antwort zu sehen.</p></div>
     <div class="flips" id="flips"></div>
   </div>
 </section>
 
-<!-- ABLAUF -->
-<section class="slide ink" id="ablauf">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Gesprächsablauf</span><h2>In sechs Schritten zum Abschluss.</h2></div>
-    <ol class="flow">
-      <li><b>Kontakt</b><p>Begrüßen, Blickkontakt. <q>Kann ich Ihnen bei der Auswahl helfen?</q></p></li>
-      <li><b>Bedarf</b><p>Offene W-Fragen. <q>Wofür nutzen Sie die Milch hauptsächlich?</q></p></li>
-      <li><b>Präsentieren</b><p>Packung in die Hand geben, 2–3 passende Nutzen nennen.</p></li>
-      <li><b>Einwände</b><p>Zustimmen, Nutzen zeigen, ehrlich bleiben.</p></li>
-      <li><b>Abschluss</b><p>Alternativfrage. <q>Eine Packung zum Probieren oder gleich den Vorrat?</q></p></li>
-      <li><b>Verabschieden</b><p>Kauf bestätigen, freundlich verabschieden.</p></li>
-    </ol>
+<!-- ABSCHLUSS -->
+<section class="slide sun" id="kaufen">
+  <div class="wrap close">
+    <div>
+      <span class="eyebrow">Überzeugt?</span>
+      <h2>Einmal kaufen. Wochen­lang genießen.</h2>
+      <ul>
+        <li>Kontrollierte Bio-Qualität</li>
+        <li>Ungeöffnet ca. 3 Monate haltbar, ohne Kühlschrank</li>
+        <li>Wenig Fett, viel Eiweiß und Calcium</li>
+        <li>Fair im Preis</li>
+      </ul>
+    </div>
+    <div class="pricebox">
+      <span class="k">Bio Sonne Bio-H-Milch 1,5 %</span>
+      <span class="p num">1,19 €</span>
+      <p>ca. pro Liter. Nehmen Sie gleich ein paar Packungen für den Vorrat mit.</p>
+    </div>
   </div>
 </section>
 
-<!-- ROLLENSPIEL -->
-<section class="slide" id="rollenspiel">
+<!-- WARENBOGEN KOMPAKT -->
+<section class="slide" id="bogen">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Rollenspiel · Innen- und Außenkreis</span><h2>Kunde ziehen. Los geht's.</h2><p>Der Innenkreis verkauft, der Außenkreis spielt die Kunden. Nach jeder Runde rückt der Außenkreis einen Platz weiter.</p></div>
-    <div class="rp">
-      <div class="dice" id="dice">
-        <div class="who"><span class="emoji" id="d-ic">?</span><div><span class="eyebrow" style="color:var(--muted)">Deine Kundin / dein Kunde</span><h3 id="d-name">Klick auf „Kunde ziehen“</h3></div></div>
-        <dl>
-          <dt>Sucht</dt><dd id="d-want">–</dd>
-          <dt>Einwand</dt><dd id="d-obj">–</dd>
-          <dt>Tipp</dt><dd id="d-tip">–</dd>
-        </dl>
-        <button class="roll" id="roll" type="button">🎲 Kunde ziehen</button>
-      </div>
-      <div class="timer">
-        <span class="eyebrow">Gesprächszeit</span>
-        <span class="t" id="t">3:00</span>
-        <div class="row">
-          <button class="go" id="t-start" type="button">Start</button>
-          <button id="t-reset" type="button">Zurücksetzen</button>
-        </div>
-        <p class="watch">Beobachter achten auf: <b>Bedarfsermittlung · Nutzenargumente · Einwandbehandlung · Abschlussfrage · Körpersprache</b></p>
-      </div>
+    <div class="sec-head"><span class="eyebrow">Warenbeschreibungsbogen</span><h2>Der Bogen kompakt.</h2><p>Alle Punkte der Stichliste in einer Übersicht.</p></div>
+    <div class="sheet">
+      <dl>
+        <dt>Artikelbezeichnung</dt><dd>Bio Sonne Bio-H-Milch, fettarm, 1,5 % Fett, ultrahocherhitzt, homogenisiert <a href="#ueberblick">ansehen ↑</a></dd>
+        <dt>Herkunft</dt><dd>Deutschland, deutsche Bio-Landwirtschaft · Marke Bio Sonne (NORMA) <a href="#ueberblick">ansehen ↑</a></dd>
+        <dt>Zahlenangaben/Maße</dt><dd>1 l, ca. 1,03 kg · 1,5 % Fett · 47 kcal, 3,4 g Eiweiß, 120 mg Calcium pro 100 ml · MHD ca. 3 Monate <a href="#naehrwerte">ansehen ↑</a></dd>
+        <dt>Material</dt><dd>100 % Bio-Kuhmilch ohne Zusatzstoffe · Verbundkarton (Pappe, PE, Alu) mit Schraubverschluss <a href="#herstellung">ansehen ↑</a></dd>
+        <dt>Herstellung</dt><dd>Fett einstellen, homogenisieren, wenige Sekunden auf 135–150 °C erhitzen, keimfrei abfüllen <a href="#herstellung">ansehen ↑</a></dd>
+        <dt>Kennzeichen</dt><dd>EU-Bio-Logo, deutsches Bio-Siegel, Öko-Kontrollnummer, Identitätskennzeichen, MHD <a href="#kennzeichen">ansehen ↑</a></dd>
+        <dt>Verwendungszweck</dt><dd>Trinken, Kaffee und Tee, Müsli, Kochen, Backen, Shakes <a href="#verwendung">ansehen ↑</a></dd>
+        <dt>Bedienung/Pflege</dt><dd>Ungeöffnet bei Raumtemperatur, geöffnet bei max. 7 °C und in 3–4 Tagen verbrauchen · schütteln · Gelber Sack <a href="#verwendung">ansehen ↑</a></dd>
+        <dt>Besonderheiten</dt><dd>Bio zum Discounterpreis, Vorrat ohne Kühlschrank, fettarm aber eiweißreich, artgerechtere Tierhaltung <a href="#vorteile">ansehen ↑</a></dd>
+        <dt>Preis</dt><dd>ca. 1,19 € pro Liter, ca. 24 Cent pro Glas <a href="#ueberblick">ansehen ↑</a></dd>
+        <dt>Für wen geeignet?</dt><dd>Familien, Figurbewusste, Bio-Käufer, Singles und Senioren, Camper und Büros, Kaffeetrinker · nicht bei Laktoseintoleranz, Milchallergie, veganer Ernährung, für Säuglinge <a href="#zielgruppen">ansehen ↑</a></dd>
+        <dt>Etc.</dt><dd>Allergene: Milch (enthält Laktose) · Vergleich mit Alternativen · häufige Kundenfragen <a href="#vergleich">ansehen ↑</a></dd>
+      </dl>
     </div>
   </div>
 </section>
@@ -653,16 +693,16 @@ body.present .progress{display:block}
 
 <footer>
   <div class="wrap">
-    <p><b>Schulungsunterlage von Jona Gotthardt</b> · NORMA Filiale Staufenberg · Fortbildung 18.09.2026</p>
-    <p>Keine offizielle NORMA-Seite. Produktangaben ohne Gewähr, maßgeblich ist die Packung.</p>
+    <p><b>Produktpräsentation von Jona Gotthardt</b> · Fortbildung 18.09.2026</p>
+    <p>Keine offizielle NORMA-Seite. Angaben ohne Gewähr, maßgeblich sind Packung und Preisschild in der Filiale.</p>
   </div>
 </footer>
 
 <div class="pnav" role="navigation" aria-label="Folien">
-  <button id="prev" type="button">←</button>
+  <button id="prev" type="button" aria-label="Zurück">←</button>
   <span class="count" id="count">1 / 1</span>
   <button id="next" type="button" class="go">Weiter →</button>
-  <button id="exit" type="button">✕</button>
+  <button id="exit" type="button" aria-label="Präsentation beenden">✕</button>
 </div>
 
 <script>
@@ -670,6 +710,7 @@ body.present .progress{display:block}
   const $=s=>document.querySelector(s);
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const de=(n,d)=>n.toLocaleString('de-DE',{minimumFractionDigits:d,maximumFractionDigits:d});
+  const PRICE=1.19;
 
   /* 3D-Karton */
   const carton=$('#carton'), stage=$('#stage');
@@ -684,18 +725,22 @@ body.present .progress{display:block}
     requestAnimationFrame(loop);
   })();
 
+  /* Preis pro Glas */
+  const glas=$('#glas');
+  const calc=()=>{const ml=+glas.value;$('#glas-ml').textContent=ml;$('#glas-out').textContent='≈ '+Math.round(PRICE*ml/10)+' Cent';};
+  glas.addEventListener('input',calc);calc();
+
   /* Thermometer-Balken */
   const bars=[...document.querySelectorAll('.tbar i')];
   const fill=()=>bars.forEach(b=>b.style.width=b.dataset.w+'%');
-  bars.forEach(b=>b.style.width=reduce?b.dataset.w+'%':'30%');
-  bars.forEach(b=>b.style.transition='width 1.1s cubic-bezier(.2,.8,.2,1)');
+  bars.forEach(b=>{b.style.width=reduce?b.dataset.w+'%':'30%';b.style.transition='width 1.1s cubic-bezier(.2,.8,.2,1)';});
   if('IntersectionObserver' in window){
     new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){fill();o.disconnect();}})},{threshold:.4}).observe($('#thermo'));
   } else fill();
 
   /* Nährwerte */
   const N=[
-    {n:'Energie',v:47,u:'kcal',d:0,ri:2000,extra:v=>' · '+de(Math.round(v*4.234),0)+' kJ'},
+    {n:'Energie',v:47,u:'kcal',d:0,ri:2000,extra:v=>' / '+de(Math.round(v*4.234),0)+' kJ'},
     {n:'Fett',v:1.5,u:'g',d:1,ri:70},
     {n:'davon gesättigte Fettsäuren',v:1.0,u:'g',d:1,ri:20,sub:1},
     {n:'Kohlenhydrate',v:4.8,u:'g',d:1,ri:260},
@@ -704,8 +749,7 @@ body.present .progress{display:block}
     {n:'Salz',v:0.1,u:'g',d:1,ri:6},
     {n:'Calcium',v:120,u:'mg',d:0,ri:800}
   ];
-  const nrows=$('#nrows');
-  nrows.innerHTML=N.map((x,i)=>`<div class="nrow${x.sub?' sub':''}"><span class="n">${x.n}</span><span class="val" id="nv${i}"></span><span class="bar"><i id="nb${i}"></i></span></div>`).join('');
+  $('#nrows').innerHTML=N.map((x,i)=>`<div class="nrow${x.sub?' sub':''}"><span class="n">${x.n}</span><span class="val" id="nv${i}"></span><span class="bar"><i id="nb${i}"></i></span></div>`).join('');
   function nutri(f){
     N.forEach((x,i)=>{
       const v=x.v*f, pct=v/x.ri*100;
@@ -718,78 +762,37 @@ body.present .progress{display:block}
   $('#per100').onclick=()=>nutri(1); $('#perGlas').onclick=()=>nutri(2);
   requestAnimationFrame(()=>nutri(1));
 
-  /* Merkmal → Vorteil → Nutzen */
+  /* Vorteile */
   const M=[
-    ['Ultrahocherhitzt','monatelang haltbar ohne Kühlung','Vorrat, weniger Einkaufswege','„Sie können auf Vorrat kaufen und sparen sich Wege.“'],
-    ['1,5 % Fett','weniger Kalorien als Vollmilch','leichter genießen ohne Verzicht','„Sie bekommen Eiweiß und Calcium wie bei Vollmilch, nur mit weniger Fett.“'],
-    ['EU-Bio-Siegel','kontrollierte Tierhaltung und Fütterung','gutes Gewissen beim Einkauf','„Sie genießen mit gutem Gewissen: Bio-Futter, Auslauf, keine Gentechnik.“'],
-    ['Homogenisiert','keine Rahmschicht','gleicher Geschmack, schöner Schaum','„Die Milch schmeckt immer gleich und schäumt schön für Ihren Cappuccino.“'],
-    ['Discounterpreis','Bio für wenig Geld','Geld sparen bei Bio-Qualität','„Sie bekommen Bio, ohne mehr auszugeben als für viele Markenmilchen.“'],
-    ['Schraubverschluss','dicht und wiederverschließbar','nichts läuft aus, nichts riecht','„Im Kühlschrank läuft nichts aus und die Milch nimmt keine Gerüche an.“']
+    ['Ultrahocherhitzt','ungeöffnet monatelang haltbar, ohne Kühlung','Sie kaufen <em>einmal auf Vorrat</em> und sparen sich Wege.'],
+    ['1,5 % Fett','weniger Kalorien als Vollmilch','Sie bekommen <em>Eiweiß und Calcium</em> wie bei Vollmilch, nur leichter.'],
+    ['EU-Bio-Siegel','kontrollierte Tierhaltung und Fütterung','Sie genießen <em>mit gutem Gewissen.</em>'],
+    ['Homogenisiert','keine Rahmschicht, gleichmäßiger Geschmack','Ihr Cappuccino bekommt <em>schönen Milchschaum.</em>'],
+    ['Discounterpreis','Bio für rund 1,19 € pro Liter','Sie bekommen Bio, <em>ohne mehr auszugeben.</em>'],
+    ['Schraubverschluss','dicht und wiederverschließbar','Im Kühlschrank <em>läuft nichts aus</em> und nichts riecht.']
   ];
   const list=$('#mvn-list');
   list.innerHTML=M.map((m,i)=>`<button type="button" role="tab" aria-selected="${i===0}" data-i="${i}">${m[0]}</button>`).join('');
   function pick(i){
     const m=M[i];
-    $('#m-m').textContent=m[0];$('#m-v').textContent=m[1];$('#m-n').textContent=m[2];$('#m-s').textContent=m[3];
+    $('#m-m').textContent=m[0];$('#m-v').textContent=m[1];$('#m-s').innerHTML=m[2];
     list.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.dataset.i==i));
   }
   list.addEventListener('click',e=>{const b=e.target.closest('button');if(b)pick(+b.dataset.i);});
   pick(0);
 
-  /* Einwände */
+  /* Häufige Fragen */
   const E=[
-    ['„Bio ist mir zu teuer.“','Das verstehe ich. Pro Glas sind es nur wenige Cent mehr, und dafür bekommen Sie kontrollierte Bio-Qualität.'],
-    ['„H-Milch schmeckt gekocht.“','Viele empfinden das so. Im Kaffee oder Müsli merkt man kaum einen Unterschied. Probieren Sie es gern aus.'],
-    ['„Frischmilch ist gesünder.“','Beim Erhitzen geht etwas Vitamin B12 und Folsäure verloren, das stimmt. Eiweiß und Calcium bleiben aber vollständig erhalten, und die Milch hält viel länger.'],
-    ['„Ich vertrage Milch nicht so gut.“','Diese Milch enthält Laktose. Für Sie passt unsere laktosefreie Milch besser. Ich zeige sie Ihnen gern.'],
-    ['„Ist Discounter-Bio echtes Bio?“','Ja. Es gelten dieselben EU-Öko-Vorschriften wie überall, mit mindestens einer Kontrolle pro Jahr. Die Kontrollnummer steht auf der Packung.'],
-    ['„1,5 % ist mir zu wässrig.“','Dann passt vielleicht unsere Bio-Vollmilch besser zu Ihnen. Zum Kochen und fürs Müsli ist die fettarme aber ideal.']
+    ['Ist Bio vom Discounter echtes Bio?','Ja. Für jedes Bio-Produkt gilt dieselbe EU-Öko-Verordnung, mit mindestens einer unabhängigen Kontrolle pro Jahr. Die Kontrollnummer steht auf der Packung.'],
+    ['Schmeckt H-Milch nicht gekocht?','Pur schmeckt man einen leichten Unterschied. Im Kaffee, Müsli oder beim Kochen merken Sie ihn kaum. Probieren Sie es aus.'],
+    ['Ist Frischmilch nicht gesünder?','Beim Erhitzen geht etwas Vitamin B12 und Folsäure verloren. Eiweiß und Calcium bleiben aber vollständig erhalten, und die Milch hält viel länger.'],
+    ['Lohnt sich Bio für den Preis?','Pro Glas zahlen Sie nur rund 24 Cent. Dafür bekommen Sie kontrollierte Bio-Qualität mit besserer Tierhaltung.'],
+    ['Wie lange hält sie nach dem Öffnen?','Im Kühlschrank bei max. 7 °C etwa 3–4 Tage. Gut zudrehen, dann nimmt sie keine Gerüche an.'],
+    ['Kann ich sie warm machen?','Natürlich. Für Kakao, Milchkaffee oder Pudding ist sie ideal. Nur nicht zu lange kochen lassen.']
   ];
   const flips=$('#flips');
-  flips.innerHTML=E.map(e=>`<button class="flip" type="button" aria-pressed="false"><span class="in"><span class="side q"><span class="tag">Kunde sagt</span><span class="txt">${e[0]}</span><span class="hint">Antwort zeigen ↻</span></span><span class="side a"><span class="tag">Du antwortest</span><span class="txt">${e[1]}</span><span class="hint">zurückdrehen ↻</span></span></span></button>`).join('');
+  flips.innerHTML=E.map(e=>`<button class="flip" type="button" aria-pressed="false"><span class="in"><span class="side q"><span class="tag">Frage</span><span class="txt">${e[0]}</span><span class="hint">Antwort zeigen ↻</span></span><span class="side a"><span class="tag">Antwort</span><span class="txt">${e[1]}</span><span class="hint">zurückdrehen ↻</span></span></span></button>`).join('');
   flips.addEventListener('click',e=>{const f=e.target.closest('.flip');if(!f)return;const on=f.classList.toggle('on');f.setAttribute('aria-pressed',on);});
-
-  /* Rollenspiel-Generator */
-  const K=[
-    ['F','Mutter mit drei Kindern','viel Milch auf Vorrat, möglichst günstig','„Die normale H-Milch ist doch billiger!“','Rechne pro Glas vor und betone den Vorrat.'],
-    ['S','Fitness-Fan','viel Eiweiß, wenig Fett','„Wie viel Eiweiß hat die eigentlich?“','Zahlen nennen: fast 7 g Eiweiß pro Glas.'],
-    ['B','Kritische Bio-Kundin','echtes Bio mit guter Tierhaltung','„Ist Discounter-Bio echtes Bio?“','EU-Öko-Verordnung und Kontrollnummer zeigen.'],
-    ['R','Rentner, wohnt allein','kleine Mengen, wenig Platz im Kühlschrank','„Die wird bei mir doch schlecht.“','Ungeöffnet ohne Kühlung haltbar, nichts verdirbt.'],
-    ['€','Schnäppchenjäger','den niedrigsten Preis','„Bio ist mir zu teuer.“','Erst zustimmen, dann Mehrwert pro Cent zeigen.'],
-    ['L','Kundin mit Bauchweh nach Milch','eine Milch, die sie verträgt','„Ich vertrage Milch nicht so gut.“','Ehrlich bleiben und laktosefreie Milch zeigen.'],
-    ['K','Kaffee-Liebhaber','Milch für den Cappuccino','„H-Milch schmeckt gekocht.“','Homogenisiert, schäumt gut, im Kaffee kaum Unterschied.'],
-    ['C','Camperin vor dem Urlaub','Milch, die ohne Kühlbox hält','„Hält die echt ohne Kühlschrank?“','Ja, ungeöffnet bis zum MHD. Nach dem Öffnen kühlen.']
-  ];
-  let last=-1;
-  $('#roll').onclick=()=>{
-    let i; do{i=Math.floor(Math.random()*K.length);}while(i===last); last=i;
-    const k=K[i];
-    $('#d-ic').textContent=k[0];$('#d-name').textContent=k[1];$('#d-want').textContent=k[2];$('#d-obj').textContent=k[3];$('#d-tip').textContent=k[4];
-    const d=$('#dice');d.classList.remove('shake');void d.offsetWidth;d.classList.add('shake');
-  };
-
-  /* Timer */
-  let left=180, tid=null;
-  const show=()=>{const t=$('#t');t.textContent=Math.floor(left/60)+':'+String(left%60).padStart(2,'0');t.classList.toggle('end',left===0);};
-  $('#t-start').onclick=function(){
-    if(tid){clearInterval(tid);tid=null;this.textContent='Weiter';return;}
-    if(left===0)left=180;
-    this.textContent='Pause';
-    tid=setInterval(()=>{left=Math.max(0,left-1);show();if(left===0){clearInterval(tid);tid=null;$('#t-start').textContent='Neu starten';}},1000);
-  };
-  $('#t-reset').onclick=()=>{clearInterval(tid);tid=null;left=180;show();$('#t-start').textContent='Start';};
-
-  /* Prüfhinweise */
-  const btnCheck=$('#toggle-check');
-  function setClean(on){
-    document.body.classList.toggle('clean',on);
-    btnCheck.setAttribute('aria-pressed',String(on));
-    btnCheck.textContent=on?'Prüfhinweise an':'Prüfhinweise aus';
-    try{localStorage.setItem('clean',on?'1':'0');}catch(e){}
-  }
-  btnCheck.onclick=()=>setClean(!document.body.classList.contains('clean'));
-  try{if(localStorage.getItem('clean')==='1')setClean(true);}catch(e){}
 
   /* Präsentiermodus */
   const slides=[...document.querySelectorAll('.slide')];
